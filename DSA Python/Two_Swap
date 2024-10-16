@@ -1,0 +1,18 @@
+'''
+Two Swaps
+Given a permutation of some of the first natural numbers in an array arr[], determine if the array can be sorted in exactly two swaps. A swap can involve the same pair of indices twice.
+Return true if it is possible to sort the array with exactly two swaps, otherwise return false
+
+'''
+def checkSorted(self, arr):
+        count = 0
+        for i in range(len(arr)):
+            while arr[i] != i + 1:
+                temp = arr[i]-1
+                if arr[temp] == arr[i]:
+                    return False
+                arr[i], arr[temp ] = arr[temp ],arr[i]
+                count += 1
+            if count > 2:
+                return False
+        return count == 2 or count == 0
